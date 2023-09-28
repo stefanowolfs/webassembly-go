@@ -16,8 +16,12 @@
     </body>
     <script>
         var json = function(input) {
-            var result = formatJSON(input)  
-            console.log("Value returned from Go", result)  
+                var result = formatJSON(input)
+                if (( result != null) && ('error' in result)) {
+                    console.log("Go return value", result)
+                    jsonoutput.value = ""
+                    alert(result.error)
+                }
         }
      </script>
 </html> 
